@@ -32,7 +32,7 @@ const Login = props => {
     return (
         <div className='login-container'>
             <h1>{inputs.isLoggedIn ? 'Login Complete' : 'Login to Continue'}</h1>
-            <form onSubmit={handleLogin}>
+                <form onSubmit={handleLogin}>
                 <input 
                 name='username'
                 placeholder='Enter Username'
