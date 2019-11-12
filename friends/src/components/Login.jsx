@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-function Login() {
-  return (
-    <div className="login-container">
-      
-    </div>
-  );
+const Login = props => {
+    return (
+        <div className='login-container'>
+
+        </div>
+    )
 }
 
 export default Login;

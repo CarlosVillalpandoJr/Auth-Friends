@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-function FriendsList() {
-  return (
-    <div className="friends-list">
-      
-    </div>
-  );
+const FriendsList = props => {
+    return (
+        <div className='friends-list'>
+
+        </div>
+    )
 }
 
 export default FriendsList;
