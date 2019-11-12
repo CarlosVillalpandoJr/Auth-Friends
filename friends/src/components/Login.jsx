@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 const Login = props => {
     const [inputs, setInputs ] = useState({
@@ -13,7 +13,16 @@ const Login = props => {
 
     const handleLogin = event => {
         event.preventDefault();
-    }
+        axiosWithAuth()
+            .post('/login', inputs)
+            .then(response => {
+                console.log(response)
+                sessionStorage.setItem('token', response.data.payload)
+                props.history.push('/protectedFriendsList')
+            })
+            .catch(error => console.log(error))
+        }
+
     
     return (
         <div className='login-container'>
@@ -26,7 +35,7 @@ const Login = props => {
                 value={inputs.username}
                 />
                 <input 
-                name='username'
+                name='password'
                 type='password'
                 placeholder='Enter Password'
                 onChange={handleChange}
