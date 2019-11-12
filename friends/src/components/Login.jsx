@@ -8,7 +8,11 @@ const Login = props => {
     })
     
     const handleChange = event => {
-        setInputs({ ...inputs, [event.target.name]: event.target.value })
+        setInputs({ 
+            ...inputs, 
+            [event.target.name]: event.target.value,
+            isLoggedIn: false 
+        })
     }
 
     const handleLogin = event => {
@@ -18,6 +22,7 @@ const Login = props => {
             .then(response => {
                 console.log(response)
                 sessionStorage.setItem('token', response.data.payload)
+                setInputs({ ...inputs, isLoggedIn: true })
                 props.history.push('/protectedFriendsList')
             })
             .catch(error => console.log(error))
@@ -26,7 +31,7 @@ const Login = props => {
     
     return (
         <div className='login-container'>
-            <h1>Login</h1>
+            <h1>{inputs.isLoggedIn ? 'Login Complete' : 'Login to Continue'}</h1>
             <form onSubmit={handleLogin}>
                 <input 
                 name='username'
