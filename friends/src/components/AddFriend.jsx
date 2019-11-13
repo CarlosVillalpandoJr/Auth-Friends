@@ -15,13 +15,12 @@ const AddFriend = props => {
         })
     }
 
-    const handleLogin = event => {
+    const addFriend = event => {
         event.preventDefault();
         axiosWithAuth()
-            .post('/login', inputs)
+            .post('/friends', friend)
             .then(response => {
                 console.log(response)
-                sessionStorage.setItem('token', response.data.payload)
             })
             .catch(error => console.log(error))
         }
@@ -30,7 +29,7 @@ const AddFriend = props => {
     return (
         <div className='login-container'>
             <h1>Add a Friend!</h1>
-                <form onSubmit={handleLogin}>
+                <form onSubmit={addFriend}>
                 <input 
                 name='name'
                 placeholder='Enter Name'

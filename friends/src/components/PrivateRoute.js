@@ -6,6 +6,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         <Route 
             {...rest}
             render={props => {
+                console.log(props)
                 if(sessionStorage.getItem('token')) {
                     return <Component {...props} />
                 } else {
@@ -13,7 +14,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
                 }
             }}
         />
-    )
+    )   
 }
 
 export default PrivateRoute;
