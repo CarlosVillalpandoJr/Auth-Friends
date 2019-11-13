@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 const FriendsList = props => {
+    console.log('FriendsList Props: ', props)
     const [friends, setFriends] = useState([])
 
 
